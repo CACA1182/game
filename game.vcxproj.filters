@@ -5,6 +5,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="STAGE">
+      <UniqueIdentifier>{9fc906ee-2844-4602-8761-c1c80549fb49}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gmain.cpp" />
@@ -12,9 +15,32 @@
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="SCENE.cpp" />
     <ClCompile Include="TITLE.cpp" />
-    <ClCompile Include="STAGE_OUTSIDE.cpp" />
     <ClCompile Include="GAME_CLEAR.cpp" />
     <ClCompile Include="GAME_OVER.cpp" />
+    <ClCompile Include="STAGE_CRDone.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_LIVING.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_OUTSIDE.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_KITCHEN.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_BROOM.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_CRDsec.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_SDROOM.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
+    <ClCompile Include="STAGE_BEDROOM.cpp">
+      <Filter>STAGE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -26,8 +52,31 @@
     <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="SCENE.h" />
     <ClInclude Include="TITLE.h" />
-    <ClInclude Include="STAGE_OUTSIDE.h" />
     <ClInclude Include="GAME_CLEAR.h" />
     <ClInclude Include="GAME_OVER.h" />
+    <ClInclude Include="STAGE_CRDone.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_LIVING.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_OUTSIDE.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_KITCHEN.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_BROOM.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_CRDsec.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_SDROOM.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
+    <ClInclude Include="STAGE_BEDROOM.h">
+      <Filter>STAGE</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

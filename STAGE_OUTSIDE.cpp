@@ -12,7 +12,7 @@ STAGE_OUTSIDE::~STAGE_OUTSIDE() {
 void STAGE_OUTSIDE::draw() {
 	clear();
 	printSize(50);
-	print("STAGE_OUTSIDE");
+	print("STAGE_OUTSIDE ZˆêŠKCƒNƒŠƒA");
 }
 
 void STAGE_OUTSIDE::nextScene() {
@@ -22,10 +22,11 @@ void STAGE_OUTSIDE::nextScene() {
 
 
 
-	if (isTrigger(KEY_X)) {
-		game()->changeScene(GAME::GAME_OVER_ID);
+	if (isTrigger(KEY_Z)) {
+		game()->changeScene(GAME::STAGE_CRDone_ID);
 	}
-	else if (isTrigger(KEY_Z)) {
+	
+	else if (isTrigger(KEY_C)) {
 		game()->changeScene(GAME::GAME_CLEAR_ID);
 	}
 	

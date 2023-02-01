@@ -134,25 +134,39 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="STAGE_BEDROOM.cpp" />
+    <ClCompile Include="STAGE_BROOM.cpp" />
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="GAME_CLEAR.cpp" />
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="GAME_OVER.cpp" />
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="SCENE.cpp" />
+    <ClCompile Include="STAGE_CRDone.cpp" />
+    <ClCompile Include="STAGE_CRDsec.cpp" />
+    <ClCompile Include="STAGE_KITCHEN.cpp" />
+    <ClCompile Include="STAGE_LIVING.cpp" />
     <ClCompile Include="STAGE_OUTSIDE.cpp" />
+    <ClCompile Include="STAGE_SDROOM.cpp" />
     <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="STAGE_BEDROOM.h" />
+    <ClInclude Include="STAGE_BROOM.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_CLEAR.h" />
     <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="GAME_OVER.h" />
     <ClInclude Include="SCENE.h" />
+    <ClInclude Include="STAGE_CRDone.h" />
+    <ClInclude Include="STAGE_CRDsec.h" />
+    <ClInclude Include="STAGE_KITCHEN.h" />
+    <ClInclude Include="STAGE_LIVING.h" />
     <ClInclude Include="STAGE_OUTSIDE.h" />
+    <ClInclude Include="STAGE_SDROOM.h" />
     <ClInclude Include="TITLE.h" />
   </ItemGroup>
   <ItemGroup>
