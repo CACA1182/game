@@ -4,7 +4,7 @@ class GAME
 public:
 	enum SCENE_ID {
 		TITLE_ID,
-		STAGE_ID,
+		STAGE_OUTSIDE_ID,
 		GAME_CLEAR_ID,
 		GAME_OVER_ID,
 		NUM_SCENES

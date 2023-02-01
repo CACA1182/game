@@ -1,12 +1,12 @@
 #include"libOne.h"
 #include"TITLE.h"
-#include"STAGE.h"
+#include"STAGE_OUTSIDE.h"
 #include"GAME_CLEAR.h"
 #include"GAME_OVER.h"
 #include"GAME.h"
 GAME::GAME() {
 	Scenes[TITLE_ID] = new TITLE(this);
-	Scenes[STAGE_ID] = new STAGE(this);
+	Scenes[STAGE_OUTSIDE_ID] = new STAGE_OUTSIDE(this);
 	Scenes[GAME_CLEAR_ID] = new GAME_CLEAR(this);
 	Scenes[GAME_OVER_ID] = new GAME_OVER(this);
 	CurSceneId = TITLE_ID;

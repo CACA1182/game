@@ -140,7 +140,7 @@
     <ClCompile Include="GAME_OVER.cpp" />
     <ClCompile Include="gmain.cpp" />
     <ClCompile Include="SCENE.cpp" />
-    <ClCompile Include="STAGE.cpp" />
+    <ClCompile Include="STAGE_OUTSIDE.cpp" />
     <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -152,7 +152,7 @@
     <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="GAME_OVER.h" />
     <ClInclude Include="SCENE.h" />
-    <ClInclude Include="STAGE.h" />
+    <ClInclude Include="STAGE_OUTSIDE.h" />
     <ClInclude Include="TITLE.h" />
   </ItemGroup>
   <ItemGroup>

@@ -12,7 +12,7 @@
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="SCENE.cpp" />
     <ClCompile Include="TITLE.cpp" />
-    <ClCompile Include="STAGE.cpp" />
+    <ClCompile Include="STAGE_OUTSIDE.cpp" />
     <ClCompile Include="GAME_CLEAR.cpp" />
     <ClCompile Include="GAME_OVER.cpp" />
   </ItemGroup>
@@ -26,7 +26,7 @@
     <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="SCENE.h" />
     <ClInclude Include="TITLE.h" />
-    <ClInclude Include="STAGE.h" />
+    <ClInclude Include="STAGE_OUTSIDE.h" />
     <ClInclude Include="GAME_CLEAR.h" />
     <ClInclude Include="GAME_OVER.h" />
   </ItemGroup>

@@ -1,22 +1,27 @@
 #include"libOne.h"
 #include"GAME.h"
-#include "STAGE.h"
-STAGE::STAGE(class GAME* game) :
+#include "STAGE_OUTSIDE.h"
+STAGE_OUTSIDE::STAGE_OUTSIDE(class GAME* game) :
 	SCENE(game){
 
 }
 
-STAGE::~STAGE() {
+STAGE_OUTSIDE::~STAGE_OUTSIDE() {
 }
 
-void STAGE::draw() {
+void STAGE_OUTSIDE::draw() {
 	clear();
 	printSize(50);
-	print("STAGE");
+	print("STAGE_OUTSIDE");
 }
 
-void STAGE::nextScene() {
+void STAGE_OUTSIDE::nextScene() {
 	
+
+
+
+
+
 	if (isTrigger(KEY_X)) {
 		game()->changeScene(GAME::GAME_OVER_ID);
 	}

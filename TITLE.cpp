@@ -18,7 +18,7 @@ void TITLE::draw(){
 void TITLE::nextScene() {
 	
 	if (isTrigger(KEY_Z)) {
-		game()->changeScene(GAME::STAGE_ID);
+		game()->changeScene(GAME::STAGE_OUTSIDE_ID);
 	}
 	
 }
