@@ -134,6 +134,7 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CONTAINER.cpp" />
     <ClCompile Include="STAGE_BEDROOM.cpp" />
     <ClCompile Include="STAGE_BROOM.cpp" />
     <ClCompile Include="GAME.cpp" />
@@ -154,6 +155,7 @@
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CONTAINER.h" />
     <ClInclude Include="STAGE_BEDROOM.h" />
     <ClInclude Include="STAGE_BROOM.h" />
     <ClInclude Include="GAME.h" />

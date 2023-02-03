@@ -8,12 +8,13 @@ GAME_OVER::GAME_OVER(class GAME* game) :
 GAME_OVER::~GAME_OVER() {
 }
 void GAME_OVER::draw() {
-	clear();
-	printSize(50);
-	print("GAME OVER");
+	image(GameOver.img, 500, 500);
+	printSize(30);
+	text("SPACE‚Åƒ^ƒCƒgƒ‹‚É–ß‚é",0,1000);
 }
+
 void GAME_OVER::nextScene() {
-	if (isTrigger(KEY_Z)) {
+	if (isTrigger(KEY_SPACE)) {
 		game()->changeScene(GAME::TITLE_ID);
 	}
 }

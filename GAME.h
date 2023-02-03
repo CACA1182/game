@@ -1,6 +1,12 @@
 #pragma once
 class GAME
 {
+	//ƒRƒ“ƒeƒi
+private:
+	class CONTAINER* Container;
+public:
+	class CONTAINER* container() { return Container; }
+
 public:
 	enum SCENE_ID {
 		TITLE_ID,

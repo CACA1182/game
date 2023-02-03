@@ -1,5 +1,6 @@
 #include"libOne.h"
 #include"TITLE.h"
+#include"CONTAINER.h"
 
 #include"STAGE_OUTSIDE.h"
 #include"STAGE_CRDone.h"
@@ -14,6 +15,7 @@
 #include"GAME_OVER.h"
 #include"GAME.h"
 GAME::GAME() {
+	Container = new CONTAINER();
 	Scenes[TITLE_ID] = new TITLE(this);//É^ÉCÉgÉã
 
 	Scenes[STAGE_OUTSIDE_ID] = new STAGE_OUTSIDE(this);//íÎ
@@ -37,6 +39,11 @@ GAME::~GAME(){
 }
 void GAME::run() {
 	window(1000, 1000, full);
+
+	Container->load();
+	Scenes[TITLE_ID]->create();
+
+	Scenes[CurSceneId]->init();
 	while (notQuit) {
 		Scenes[CurSceneId]->proc();
 	}
@@ -76,6 +83,9 @@ void GAME::changeScene(SCENE_ID sceneId) {
 	}
 	//êQé∫
 	if (isTrigger(KEY_D)) {
+		CurSceneId = sceneId;
+	}
+	if (isTrigger(KEY_SPACE)) {
 		CurSceneId = sceneId;
 	}
 }
