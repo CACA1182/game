@@ -32,7 +32,7 @@ void TITLE::nextScene() {
 			game()->changeScene(GAME::STAGE_OUTSIDE_ID);
 		}
 		if (isTrigger(KEY_SPACE) && Title.slc == Title.pos.y + 300) {
-			
+			exit(0);
 		}
 
 	

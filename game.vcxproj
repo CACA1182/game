@@ -135,6 +135,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CONTAINER.cpp" />
+    <ClCompile Include="MAP.cpp" />
+    <ClCompile Include="MAP2.cpp" />
     <ClCompile Include="STAGE_BEDROOM.cpp" />
     <ClCompile Include="STAGE_BROOM.cpp" />
     <ClCompile Include="GAME.cpp" />
@@ -156,6 +158,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CONTAINER.h" />
+    <ClInclude Include="MAP.h" />
+    <ClInclude Include="MAP2.h" />
     <ClInclude Include="STAGE_BEDROOM.h" />
     <ClInclude Include="STAGE_BROOM.h" />
     <ClInclude Include="GAME.h" />

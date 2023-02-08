@@ -1,5 +1,7 @@
 #include"libOne.h"
 #include"GAME.h"
+#include"CONTAINER.h"
+#include"MAP2.h"
 #include "STAGE_CRDsec.h"
 STAGE_CRDsec::STAGE_CRDsec(class GAME* game) :
 	SCENE(game) {
@@ -7,12 +9,25 @@ STAGE_CRDsec::STAGE_CRDsec(class GAME* game) :
 }
 
 STAGE_CRDsec::~STAGE_CRDsec() {
+
+}
+
+void  STAGE_CRDsec::init() {
+	game()->map2()->init();
+
+}
+
+void STAGE_CRDsec::update() {
+	game()->map2()->update();
+
 }
 
 void STAGE_CRDsec::draw() {
+
 	clear();
-	printSize(50);
-	print("STAGE_CRDsec Z一階S書斎D寝室");
+	game()->map2()->draw();
+	printSize(40);
+	print("STAGE_CRDone A二階KキッチンLリビングB風呂Xオーバー");
 }
 
 void STAGE_CRDsec::nextScene() {

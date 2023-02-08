@@ -10,6 +10,8 @@
 #include"STAGE_CRDsec.h"
 #include"STAGE_SDROOM.h"
 #include"STAGE_BEDROOM.h"
+#include"MAP.h"
+#include"MAP2.h"
 
 #include"GAME_CLEAR.h"
 #include"GAME_OVER.h"
@@ -30,25 +32,40 @@ GAME::GAME() {
 
 	Scenes[GAME_CLEAR_ID] = new GAME_CLEAR(this);
 	Scenes[GAME_OVER_ID] = new GAME_OVER(this);
+
 	CurSceneId = TITLE_ID;
+	Map = new MAP(this);
+	Map2 = new MAP2(this);
+
 }
 GAME::~GAME(){
+	delete Map;
+	delete Map2;
+
 	for (int i = 0; i < NUM_SCENES;i++) {
 		delete Scenes[i];
 	}
+	
 }
 void GAME::run() {
 	window(1000, 1000, full);
 
 	Container->load();
 	Scenes[TITLE_ID]->create();
+	Map->create();
+	Map2->create();
 
+
+	CurSceneId = TITLE_ID;
 	Scenes[CurSceneId]->init();
 	while (notQuit) {
 		Scenes[CurSceneId]->proc();
 	}
 }
 void GAME::changeScene(SCENE_ID sceneId) {
+	CurSceneId = sceneId;
+	Scenes[CurSceneId]->init();
+
 	//éüÉyÅ[ÉW òLâ∫àÍäK
 	if (isTrigger(KEY_Z)) {
 		CurSceneId = sceneId;

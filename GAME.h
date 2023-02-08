@@ -28,10 +28,18 @@ public:
 private:
 	class SCENE* Scenes[NUM_SCENES];
 	SCENE_ID CurSceneId;
+public:
+	void changeScene(SCENE_ID sceneId);
+private:
+	class MAP* Map;
+	class MAP2* Map2;
+
+public:
+	class MAP* map() { return Map; }
+	class MAP2* map2() { return Map2; }
 
 public:
 	GAME();
 	~GAME();
 	void run();
-	void changeScene(SCENE_ID sceneId);
 };

@@ -1,5 +1,7 @@
 #include"libOne.h"
 #include"GAME.h"
+#include"CONTAINER.h"
+#include"MAP.h"
 #include "STAGE_CRDone.h"
 STAGE_CRDone::STAGE_CRDone(class GAME* game) :
 	SCENE(game) {
@@ -7,10 +9,23 @@ STAGE_CRDone::STAGE_CRDone(class GAME* game) :
 }
 
 STAGE_CRDone::~STAGE_CRDone() {
+
+}
+
+void  STAGE_CRDone::init() {
+	game()->map()->init();
+
+}
+
+void STAGE_CRDone::update() {
+	game()->map()->update();
+
 }
 
 void STAGE_CRDone::draw() {
+
 	clear();
+	game()->map()->draw();
 	printSize(40);
 	print("STAGE_CRDone A二階KキッチンLリビングB風呂Xオーバー");
 }

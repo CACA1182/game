@@ -8,15 +8,15 @@
     <Filter Include="STAGE">
       <UniqueIdentifier>{9fc906ee-2844-4602-8761-c1c80549fb49}</UniqueIdentifier>
     </Filter>
+    <Filter Include="MAP">
+      <UniqueIdentifier>{862e7095-35ff-4010-829f-6f3057ab248a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GAME">
+      <UniqueIdentifier>{59f14638-576d-495b-8a51-ed36c68aff3b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="gmain.cpp" />
-    <ClCompile Include="GAME.cpp" />
-    <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="SCENE.cpp" />
-    <ClCompile Include="TITLE.cpp" />
-    <ClCompile Include="GAME_CLEAR.cpp" />
-    <ClCompile Include="GAME_OVER.cpp" />
     <ClCompile Include="STAGE_CRDone.cpp">
       <Filter>STAGE</Filter>
     </ClCompile>
@@ -42,6 +42,30 @@
       <Filter>STAGE</Filter>
     </ClCompile>
     <ClCompile Include="CONTAINER.cpp" />
+    <ClCompile Include="MAP.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME.cpp">
+      <Filter>GAME</Filter>
+    </ClCompile>
+    <ClCompile Include="gmain.cpp">
+      <Filter>GAME</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_CLEAR.cpp">
+      <Filter>GAME</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_OBJECT.cpp">
+      <Filter>GAME</Filter>
+    </ClCompile>
+    <ClCompile Include="GAME_OVER.cpp">
+      <Filter>GAME</Filter>
+    </ClCompile>
+    <ClCompile Include="TITLE.cpp">
+      <Filter>GAME</Filter>
+    </ClCompile>
+    <ClCompile Include="MAP2.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -49,12 +73,7 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GAME.h" />
-    <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="SCENE.h" />
-    <ClInclude Include="TITLE.h" />
-    <ClInclude Include="GAME_CLEAR.h" />
-    <ClInclude Include="GAME_OVER.h" />
     <ClInclude Include="STAGE_CRDone.h">
       <Filter>STAGE</Filter>
     </ClInclude>
@@ -80,5 +99,26 @@
       <Filter>STAGE</Filter>
     </ClInclude>
     <ClInclude Include="CONTAINER.h" />
+    <ClInclude Include="MAP.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME.h">
+      <Filter>GAME</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_CLEAR.h">
+      <Filter>GAME</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_OBJECT.h">
+      <Filter>GAME</Filter>
+    </ClInclude>
+    <ClInclude Include="GAME_OVER.h">
+      <Filter>GAME</Filter>
+    </ClInclude>
+    <ClInclude Include="TITLE.h">
+      <Filter>GAME</Filter>
+    </ClInclude>
+    <ClInclude Include="MAP2.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
