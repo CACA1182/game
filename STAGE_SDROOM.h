@@ -6,6 +6,8 @@ class STAGE_SDROOM :
 public:
     STAGE_SDROOM(class GAME* game);
     ~STAGE_SDROOM();
+    void init();
+    void update();
     void draw();
     void nextScene();
 };

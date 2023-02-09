@@ -8,4 +8,8 @@ public:
     ~STAGE_BROOM();
     void draw();
     void nextScene();
+    void init();
+    void update();
+    
+
 };

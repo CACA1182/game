@@ -1,5 +1,7 @@
 #include"libOne.h"
 #include"GAME.h"
+#include"CONTAINER.h"
+#include"MAPH.h"
 #include "STAGE_BROOM.h"
 STAGE_BROOM::STAGE_BROOM(class GAME* game) :
 	SCENE(game) {
@@ -7,12 +9,25 @@ STAGE_BROOM::STAGE_BROOM(class GAME* game) :
 }
 
 STAGE_BROOM::~STAGE_BROOM() {
+
+}
+
+void  STAGE_BROOM::init() {
+	game()->mapH()->init();
+
+}
+
+void STAGE_BROOM::update() {
+	game()->mapH()->update();
+
 }
 
 void STAGE_BROOM::draw() {
+
 	clear();
-	printSize(50);
-	print("STAGE_BROOM");
+	game()->mapH()->draw();
+	printSize(40);
+	print("STAGE_CRDone Z X");
 }
 
 void STAGE_BROOM::nextScene() {

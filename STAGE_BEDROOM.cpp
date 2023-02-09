@@ -1,5 +1,7 @@
 #include"libOne.h"
 #include"GAME.h"
+#include"CONTAINER.h"
+#include"MAPB.h"
 #include "STAGE_BEDROOM.h"
 STAGE_BEDROOM::STAGE_BEDROOM(class GAME* game) :
 	SCENE(game) {
@@ -7,14 +9,26 @@ STAGE_BEDROOM::STAGE_BEDROOM(class GAME* game) :
 }
 
 STAGE_BEDROOM::~STAGE_BEDROOM() {
+
+}
+
+void  STAGE_BEDROOM::init() {
+	game()->mapB()->init();
+
+}
+
+void STAGE_BEDROOM::update() {
+	game()->mapB()->update();
+
 }
 
 void STAGE_BEDROOM::draw() {
-	clear();
-	printSize(50);
-	print("STAGE_BEDROOM");
-}
 
+	clear();
+	game()->mapB()->draw();
+	printSize(40);
+	print("STAGE_BEDROOM A X");
+}
 void STAGE_BEDROOM::nextScene() {
 
 

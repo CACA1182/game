@@ -1,5 +1,7 @@
 #include"libOne.h"
 #include"GAME.h"
+#include"CONTAINER.h"
+#include"MAPK.h"
 #include "STAGE_KITCHEN.h"
 STAGE_KITCHEN::STAGE_KITCHEN(class GAME* game) :
 	SCENE(game) {
@@ -7,12 +9,25 @@ STAGE_KITCHEN::STAGE_KITCHEN(class GAME* game) :
 }
 
 STAGE_KITCHEN::~STAGE_KITCHEN() {
+
+}
+
+void  STAGE_KITCHEN::init() {
+	game()->mapK()->init();
+
+}
+
+void STAGE_KITCHEN::update() {
+	game()->mapK()->update();
+
 }
 
 void STAGE_KITCHEN::draw() {
+
 	clear();
-	printSize(50);
-	print("STAGE_KITCHEN");
+	game()->mapK()->draw();
+	printSize(40);
+	print("STAGE_KITCHEN Z X");
 }
 
 void STAGE_KITCHEN::nextScene() {

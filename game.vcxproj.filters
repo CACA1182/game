@@ -66,6 +66,21 @@
     <ClCompile Include="MAP2.cpp">
       <Filter>MAP</Filter>
     </ClCompile>
+    <ClCompile Include="MAPL.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
+    <ClCompile Include="MAPK.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
+    <ClCompile Include="MAPH.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
+    <ClCompile Include="MAPB.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
+    <ClCompile Include="MAPS.cpp">
+      <Filter>MAP</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -118,6 +133,21 @@
       <Filter>GAME</Filter>
     </ClInclude>
     <ClInclude Include="MAP2.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="MAPL.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="MAPK.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="MAPH.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="MAPB.h">
+      <Filter>MAP</Filter>
+    </ClInclude>
+    <ClInclude Include="MAPS.h">
       <Filter>MAP</Filter>
     </ClInclude>
   </ItemGroup>

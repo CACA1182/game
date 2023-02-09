@@ -27,7 +27,7 @@ void STAGE_CRDsec::draw() {
 	clear();
 	game()->map2()->draw();
 	printSize(40);
-	print("STAGE_CRDone A二階KキッチンLリビングB風呂Xオーバー");
+	print("STAGE_CRDsec Z S D X");
 }
 
 void STAGE_CRDsec::nextScene() {

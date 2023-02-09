@@ -33,10 +33,30 @@ public:
 private:
 	class MAP* Map;
 	class MAP2* Map2;
+	class MAPL* MapL;
+	class MAPK* MapK;
+	class MAPH* MapH;
+	class MAPB* MapB;
+	class MAPS* MapS;
+
+
+
+
+
 
 public:
 	class MAP* map() { return Map; }
 	class MAP2* map2() { return Map2; }
+	class MAPL* mapL() { return MapL; }
+	class MAPK* mapK() { return MapK; }
+	class MAPH* mapH() { return MapH; }
+	class MAPB* mapB() { return MapB; }
+	class MAPS* mapS() { return MapS; }
+
+
+
+
+
 
 public:
 	GAME();

@@ -21,8 +21,12 @@ void TITLE::draw(){
 	
 	rectMode(CENTER);
 	image(Title.imgHan,Title.pos.x-200,Title.slc);
-	rect(Title.pos.x, Title.pos.y+300, Title.w, Title.h);
+
 	rect(Title.pos.x, Title.pos.y+200, Title.w, Title.h);
+	image(Title.imgS,Title.pos.x, Title.pos.y + 200);
+
+	rect(Title.pos.x, Title.pos.y+300, Title.w, Title.h);
+	image(Title.imgE, Title.pos.x, Title.pos.y + 300);
 
 }
 

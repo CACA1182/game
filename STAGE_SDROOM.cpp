@@ -1,5 +1,7 @@
 #include"libOne.h"
 #include"GAME.h"
+#include"CONTAINER.h"
+#include"MAPS.h"
 #include "STAGE_SDROOM.h"
 STAGE_SDROOM::STAGE_SDROOM(class GAME* game) :
 	SCENE(game) {
@@ -7,14 +9,26 @@ STAGE_SDROOM::STAGE_SDROOM(class GAME* game) :
 }
 
 STAGE_SDROOM::~STAGE_SDROOM() {
+
+}
+
+void  STAGE_SDROOM::init() {
+	game()->mapS()->init();
+
+}
+
+void STAGE_SDROOM::update() {
+	game()->mapS()->update();
+
 }
 
 void STAGE_SDROOM::draw() {
-	clear();
-	printSize(50);
-	print("STAGE_SDROOM");
-}
 
+	clear();
+	game()->mapS()->draw();
+	printSize(40);
+	print("STAGE_SDROOM A X");
+}
 void STAGE_SDROOM::nextScene() {
 
 

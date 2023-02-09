@@ -10,8 +10,18 @@
 #include"STAGE_CRDsec.h"
 #include"STAGE_SDROOM.h"
 #include"STAGE_BEDROOM.h"
+
+
 #include"MAP.h"
 #include"MAP2.h"
+#include"MAPL.h"
+#include"MAPK.h"
+#include"MAPH.h"
+#include"MAPB.h"
+#include"MAPS.h"
+
+
+
 
 #include"GAME_CLEAR.h"
 #include"GAME_OVER.h"
@@ -36,11 +46,30 @@ GAME::GAME() {
 	CurSceneId = TITLE_ID;
 	Map = new MAP(this);
 	Map2 = new MAP2(this);
+	MapL = new MAPL(this);
+	MapK = new MAPK(this);
+	MapH = new MAPH(this);
+	MapB = new MAPB(this);
+	MapS = new MAPS(this);
+
+
+
+
 
 }
 GAME::~GAME(){
 	delete Map;
 	delete Map2;
+	delete MapL;
+	delete MapK;
+	delete MapH;
+	delete MapB;
+	delete MapS;
+
+
+
+
+
 
 	for (int i = 0; i < NUM_SCENES;i++) {
 		delete Scenes[i];
@@ -54,6 +83,15 @@ void GAME::run() {
 	Scenes[TITLE_ID]->create();
 	Map->create();
 	Map2->create();
+	MapL->create();
+	MapK->create();
+	MapH->create();
+	MapB->create();
+	MapS->create();
+
+
+
+
 
 
 	CurSceneId = TITLE_ID;

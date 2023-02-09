@@ -6,6 +6,8 @@ class STAGE_BEDROOM :
 public:
     STAGE_BEDROOM(class GAME* game);
     ~STAGE_BEDROOM();
+    void init();
+    void update();
     void draw();
     void nextScene();
 };

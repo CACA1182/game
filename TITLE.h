@@ -10,6 +10,8 @@ public:
     {
         VECTOR2 pos;
 
+        int imgS;
+        int imgE;
         int imgHan;
         int slc;
         int vx ;
