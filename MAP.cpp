@@ -1,4 +1,5 @@
 #include"GAME.h"
+#include"libOne.h"
 #include"CONTAINER.h"
 #include "MAP.h"
 MAP::MAP(class GAME* game) :
@@ -62,15 +63,26 @@ void MAP::init() {
 
 }
 void MAP::update() {
-    //プレイヤーができてから　
-    //又は仮移動をする
-    Map.wy += 1;
+    //プレイヤーが画面の中央を超えた分だけスクロール
+    //左右方向スクロール
+    Map.wx += game()->characterManager()->player()->overCenterVx();
+    //上下方向スクロール
+    Map.wy += game()->characterManager()->player()->overCenterVy();
+
+
     if (Map.wy > Map.endWorldY) {
         Map.wy = Map.endWorldY;
     }
     if (Map.wx > Map.endWorldX) {
         Map.wx = Map.endWorldX;
     }
+    if (Map.wx < Map.startWorldX) {
+        Map.wx = Map.startWorldX;
+    }
+    if (Map.wy < Map.startWorldY) {
+        Map.wy = Map.startWorldY;
+    }
+
 }
 void MAP::draw() {
     int startCol = (int)Map.wx / Map.chipSize;//表示開始列
@@ -80,44 +92,135 @@ void MAP::draw() {
         for (int r = 0; r < Map.rows; r++) {
             float wy = (float)Map.chipSize * r;
             char charaId = Map.data[r * Map.cols + c];
-            //木の絵がきたらやる又は仮にレクトを置く
-            if (charaId >= '0' && charaId <= '9') {
+            if (charaId >= '0' && charaId <= 'Z') {
                 float px = wx - Map.wx;
                 float py = wy - Map.wy;
-                if (charaId == '1') image(Map.blockImg, px, py);
-                else if (charaId == '2')image(Map.dublockImg, px, py);
-                else if (charaId == '3')image(Map.dnblockImg, px, py);
-                else if (charaId == '4')image(Map.wublockImg, px, py);
-                else if (charaId == '5')image(Map.wnblockImg, px, py);
-                else if (charaId == '6')image(Map.wiublockImg, px, py);
-                else if (charaId == '7')image(Map.widblockImg, px, py);
-                else if (charaId == '8')image(Map.strblockImg, px, py);
-                else if (charaId == '9')image(Map.tileImg, px, py);
-                else if (charaId == '0')image(Map.carpet1Img, px, py);
+                if (charaId == '1') {
+                    image(Map.blockImg, px, py);
+                }
+                else if (charaId == '2') {
+                    image(Map.dupblock, px, py);
+                }
+                else if (charaId == '3') {
+                    image(Map.ddnblock, px, py);
+                } 
+                else if (charaId == '4') {
+                    image(Map.wallup, px, py);
+                } 
+                else if (charaId == '5') {
+                    image(Map.walldn, px, py);
+                } 
+                else if (charaId == '6') {
+                    image(Map.tile, px, py);
+                } 
+                else if (charaId == '7') {
+                    image(Map.cp, px, py);
+                }
+                else if (charaId == '8') {
+                    image(Map.stair, px, py);
+                }
+                else if (charaId == '9') {
+                    image(Map.blockd, px, py);
+                }
+                else if (charaId == '0') {
+                    image(Map.blockr, px, py);
+                }
+                else if (charaId == 'R') {
+                    image(Map.wallR, px, py);
+                }
+                else if (charaId == 'L') {
+                    image(Map.wallL, px, py);
+                }
+                else if (charaId == 'W') {
+                    image(Map.wallRL, px, py);
+                }
+                else if (charaId == 'T') {
+                    image(Map.wallT, px, py);
+                }
+                else if (charaId == 'Z') {
+                    image(Map.wallTR, px, py);
+                }
+                else if (charaId == 'X') {
+                    image(Map.wallTL, px, py);
+                }
             }
             else if (charaId >= 'a' && charaId <= 'z') {
-                float px = wx - Map.wx;
-                float py = wy - Map.wy;
-                if (charaId == 't')image(Map.wallTImg, px, py);
-                else if (charaId == 'b')image(Map.wallBImg, px, py);
-                else if (charaId == 'r')image(Map.wallRImg, px, py);
-              
-
-                else if (charaId == 'l')image(Map.wallLImg, px, py);
-                else if (charaId == 'w')image(Map.wallWImg, px, py);
-                else if (charaId == 'd')image(Map.blockdImg, px, py);
-
-
-
-
+                game()->characterManager()->appear(charaId, wx, wy);
+                Map.data[r * Map.cols + c] = '6';
             }
-
-
-            
         }
     }
+   
 }
-/*
+//マップチップとキャラの当たり判定用関数群---------------------------------------------------
+//　指定されたワールド座標( wx wy )が、マップチップの中にはいっているかチェックする
+bool MAP::collisionCheck(float wx, float wy) {
+    //ワールド座標からマップDataの列colと行rowを求める
+    int col = (int)wx / Map.chipSize;
+    int row = (int)wy / Map.chipSize;
+    //Dataの範囲外は判定できないので除外
+    if ((col < 0) || (col >= Map.cols) || (row < 0) || (row >= Map.rows)) {
+        return false;
+    }
+    //次の記述で座標がマップチップの中に入っているか判定できる
+   
+    if (Map.data[col + row * Map.cols] == '2') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == '3') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == '4') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == '5') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == 'L') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == 'R') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == 'T') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == 'Z') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == 'X') {
+        return true;
+    }
+    return false;
+}
+//　マップチップとキャラの左辺が重なっているか
+bool MAP::collisionCharaLeft(float wx, float wy) {
+    bool leftTop = collisionCheck(wx, wy);
+    bool leftBottom = collisionCheck(wx, wy + Map.chipSize - 1);
+    return leftTop || leftBottom;
+}
+//　マップチップとキャラの右辺が重なっているか
+bool MAP::collisionCharaRight(float wx, float wy) {
+    bool rightTop = collisionCheck(wx + Map.chipSize - 1, wy);
+    bool rightBottom = collisionCheck(wx + Map.chipSize - 1, wy + Map.chipSize - 1);
+    return rightTop || rightBottom;
+}
+//　マップチップとキャラの上辺が重なっているか
+bool MAP::collisionCharaTop(float wx, float wy) {
+    bool topLeft = collisionCheck(wx, wy);
+    bool topRight = collisionCheck(wx + Map.chipSize - 1, wy);
+    return topLeft || topRight;
+}
+//　マップチップとキャラの下辺が重なっている、または、接しているか。ここだけ他と違う！
+bool MAP::collisionCharaBottom(float wx, float wy) {
+    // wy + Map.chipSizeをCheck関数に渡すことにより
+    // キャラがマップチップと接しているかチェックできる。
+    bool bottomLeft = collisionCheck(wx, wy + Map.chipSize);
+    bool bottomRight = collisionCheck(wx + Map.chipSize - 1, wy + Map.chipSize);
+    return bottomLeft || bottomRight;
+}
+
+
 float MAP::wDispLeft()
 {
     return Map.wx - Map.chipSize;
@@ -139,4 +242,3 @@ float MAP::wDispbottom()
 }
 
 
-*/

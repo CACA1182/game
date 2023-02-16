@@ -6,9 +6,8 @@ private:
 public:
 	GAME_OBJECT(class GAME* game);
 	virtual ~GAME_OBJECT();
-	class GAME* game() { 
+	class GAME* game() {
 		return Game;
 	}
-
 };
 

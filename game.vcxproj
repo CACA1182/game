@@ -134,55 +134,35 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CHARACTER.cpp" />
+    <ClCompile Include="CHARACTER_MANAGER.cpp" />
     <ClCompile Include="CONTAINER.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="MAP.cpp" />
-    <ClCompile Include="MAP2.cpp" />
-    <ClCompile Include="MAPB.cpp" />
-    <ClCompile Include="MAPH.cpp" />
-    <ClCompile Include="MAPK.cpp" />
-    <ClCompile Include="MAPL.cpp" />
-    <ClCompile Include="MAPS.cpp" />
-    <ClCompile Include="STAGE_BEDROOM.cpp" />
-    <ClCompile Include="STAGE_BROOM.cpp" />
+    <ClCompile Include="PLAYER.cpp" />
     <ClCompile Include="GAME.cpp" />
     <ClCompile Include="GAME_CLEAR.cpp" />
     <ClCompile Include="GAME_OBJECT.cpp" />
     <ClCompile Include="GAME_OVER.cpp" />
-    <ClCompile Include="gmain.cpp" />
     <ClCompile Include="SCENE.cpp" />
-    <ClCompile Include="STAGE_CRDone.cpp" />
-    <ClCompile Include="STAGE_CRDsec.cpp" />
-    <ClCompile Include="STAGE_KITCHEN.cpp" />
-    <ClCompile Include="STAGE_LIVING.cpp" />
-    <ClCompile Include="STAGE_OUTSIDE.cpp" />
-    <ClCompile Include="STAGE_SDROOM.cpp" />
+    <ClCompile Include="STAGE.cpp" />
     <ClCompile Include="TITLE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CHARACTER.h" />
+    <ClInclude Include="CHARACTER_MANAGER.h" />
     <ClInclude Include="CONTAINER.h" />
     <ClInclude Include="MAP.h" />
-    <ClInclude Include="MAP2.h" />
-    <ClInclude Include="MAPB.h" />
-    <ClInclude Include="MAPH.h" />
-    <ClInclude Include="MAPK.h" />
-    <ClInclude Include="MAPL.h" />
-    <ClInclude Include="MAPS.h" />
-    <ClInclude Include="STAGE_BEDROOM.h" />
-    <ClInclude Include="STAGE_BROOM.h" />
+    <ClInclude Include="PLAYER.h" />
     <ClInclude Include="GAME.h" />
     <ClInclude Include="GAME_CLEAR.h" />
     <ClInclude Include="GAME_OBJECT.h" />
     <ClInclude Include="GAME_OVER.h" />
     <ClInclude Include="SCENE.h" />
-    <ClInclude Include="STAGE_CRDone.h" />
-    <ClInclude Include="STAGE_CRDsec.h" />
-    <ClInclude Include="STAGE_KITCHEN.h" />
-    <ClInclude Include="STAGE_LIVING.h" />
-    <ClInclude Include="STAGE_OUTSIDE.h" />
-    <ClInclude Include="STAGE_SDROOM.h" />
+    <ClInclude Include="STAGE.h" />
     <ClInclude Include="TITLE.h" />
   </ItemGroup>
   <ItemGroup>

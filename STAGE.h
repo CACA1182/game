@@ -1,16 +1,14 @@
 #pragma once
 #include "SCENE.h"
-class STAGE_CRDsec :
+class STAGE :
     public SCENE
 {
-
 public:
-    STAGE_CRDsec(class GAME* game);
-    ~STAGE_CRDsec();
+    STAGE(class GAME* game);
+    ~STAGE();
     void init();
     void update();
     void draw();
     void nextScene();
-
-
 };
+

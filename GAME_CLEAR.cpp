@@ -1,19 +1,27 @@
 #include"libOne.h"
 #include"GAME.h"
 #include "GAME_CLEAR.h"
-GAME_CLEAR::GAME_CLEAR(class GAME* game) :
-	SCENE(game){
+GAME_CLEAR::GAME_CLEAR(GAME* game) :
+	SCENE(game)
+{
+}
 
+GAME_CLEAR::~GAME_CLEAR()
+{
 }
-GAME_CLEAR::~GAME_CLEAR() {
-}
-void GAME_CLEAR::draw() {
+
+void GAME_CLEAR::draw()
+{
 	clear();
-	printSize(50);
-	print("GAME CLEAR");
+	textSize(100);
+	fill(255);
+	print("CLEAR");
+	print("SPACE‚ÅØ‚è‘Ö‚¦");
 }
-void GAME_CLEAR::nextScene() {
-	if (isTrigger(KEY_Z)) {
+
+void GAME_CLEAR::nextScene()
+{
+	if (isTrigger(KEY_SPACE)) {
 		game()->changeScene(GAME::TITLE_ID);
 	}
 }

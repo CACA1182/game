@@ -9,12 +9,11 @@ public:
     {
         VECTOR2 pos;
         int img;
-      
+
 
     };
 private:
     DATA GameOver;
-
 public:
     GAME_OVER(class GAME* game);
     ~GAME_OVER();

@@ -1,5 +1,6 @@
 #include"GAME.h"
-void gmain() {
+void gmain()
+{
 	GAME game;
 	game.run();
 }
