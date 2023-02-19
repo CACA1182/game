@@ -23,6 +23,8 @@ public:
         int wallT = 0;
         int wallTR = 0;
         int wallTL = 0;
+        int dRUP = 0;
+        int dRDN = 0;
 
 
        // ---------------
@@ -45,6 +47,7 @@ public:
     };
     enum CHARA_ID {
         PLAYER_ID = 'a',
+        ENEMY_ID = 'e',
     };
 private:
     DATA Map;

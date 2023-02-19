@@ -2,6 +2,7 @@
 #include"CONTAINER.h"
 
 #include"PLAYER.h"
+#include"ENEMY.h"
 #include"CHARACTER.h"
 #include "CHARACTER_MANAGER.h"
 
@@ -30,12 +31,17 @@ void CHARACTER_MANAGER::create()
     Characters = new CHARACTER * [Total];
 
     Player = new PLAYER(game());
-    int i, j = 0;
+    int  i,j = 0;
     for (i = 0; i < CharaMng.numPlayers; i++)       Characters[j++] = Player;
+
+    Enemy = new ENEMY(game());
+
+    for (i = 0; i < CharaMng.numEnemies; i++)       Characters[j++] = Enemy;
 
     for (int i = 0; i < Total; i++) {
         Characters[i]->create();
     }
+  
 }
 
 void CHARACTER_MANAGER::init()

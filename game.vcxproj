@@ -137,6 +137,8 @@
     <ClCompile Include="CHARACTER.cpp" />
     <ClCompile Include="CHARACTER_MANAGER.cpp" />
     <ClCompile Include="CONTAINER.cpp" />
+    <ClCompile Include="ENEMY.cpp" />
+    <ClCompile Include="HIT_POINT.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MAP.cpp" />
     <ClCompile Include="PLAYER.cpp" />
@@ -155,6 +157,8 @@
     <ClInclude Include="CHARACTER.h" />
     <ClInclude Include="CHARACTER_MANAGER.h" />
     <ClInclude Include="CONTAINER.h" />
+    <ClInclude Include="ENEMY.h" />
+    <ClInclude Include="HIT_POINT.h" />
     <ClInclude Include="MAP.h" />
     <ClInclude Include="PLAYER.h" />
     <ClInclude Include="GAME.h" />

@@ -1,6 +1,6 @@
 #pragma once
 #include "CHARACTER.h"
-class PLAYER :
+class ENEMY :
     public CHARACTER
 {
 public:
@@ -9,42 +9,45 @@ public:
         int leftAnimId = 1;
         int upAnimId = 2;
         int downAnimId = 3;
+
+
+        int rightImg = 0;
+        int leftImg = 0;
+        int upImg = 0;
+        int downImg = 0;
+
         float curWx = 0;
         float curWy = 0;
-        int jumpFlag = 0;
         float px = 0;
         float py = 0;
-        int UPimg = 0;
-        int DNimg = 0;
-        int Rimg = 0;
-        int Limg = 0;
-
+        float dashspeed = 0;
+        float differenceX = 0;
+        float differenceY = 0;
+        float sensingOffset = 0;
+        int direction = 0;
+        bool moveFlag = false;
+        bool dashFlag = false;
 
     };
 private:
-    DATA Player;
+    DATA Enemy;
     enum class STATE { STRUGGLING, DIED, SURVIVED };
     STATE State = STATE::STRUGGLING;
 public:
-    PLAYER(class GAME* game) :CHARACTER(game) {}
+    ENEMY(class GAME* game) :CHARACTER(game) {}
     void create();
     void appear(float wx, float wy, float vx, float vy);
     void update();
     void init();
-private:
-    void Launch();
+
     void Move();
-    void CollisionWithMap();
-    void CheckState();
+    void homing();
+private:
 public:
     void draw();
     void damage();
     bool died();
     bool survived();
-    float overCenterVx();
-    float overCenterVy();
-    int hp() { return Chara.hp; }
-      float px() { return Player.px; }
-    float py() { return Player.py; }
+ 
 };
 

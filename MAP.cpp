@@ -52,14 +52,12 @@ void MAP::init() {
         WARNING(1, "最後の行を改行していない", "");
     }
     Map.dispCols = (int)width / Map.chipSize + 1;//表示すべき列数
-    //多分dispRows必要
-
     Map.worldWidth = (float)Map.chipSize * (Map.cols - 2);//ワールドの横幅
     Map.endWorldX = Map.worldWidth - width;//表示できる最後の座標
-    Map.worldHeight = (float)Map.chipSize * (Map.rows);//ワールドの縦幅
-    Map.endWorldY = Map.worldHeight - height;//表示できる最後の座標
+    //Map.worldHeight = (float)Map.chipSize * (Map.rows);//ワールドの縦幅
+  //  Map.endWorldY = Map.worldHeight - height;//表示できる最後の座標
     Map.wx = 0.0f;//現在表示しているワールド座標
-    Map.wy = 0.0f;//現在表示しているワールド座標
+   // Map.wy = 0.0f;//現在表示しているワールド座標
 
 }
 void MAP::update() {
@@ -70,18 +68,20 @@ void MAP::update() {
     Map.wy += game()->characterManager()->player()->overCenterVy();
 
 
-    if (Map.wy > Map.endWorldY) {
-        Map.wy = Map.endWorldY;
-    }
     if (Map.wx > Map.endWorldX) {
         Map.wx = Map.endWorldX;
     }
     if (Map.wx < Map.startWorldX) {
         Map.wx = Map.startWorldX;
     }
+    
+    if (Map.wy > Map.endWorldY) {
+        Map.wy = Map.endWorldY;
+    }
     if (Map.wy < Map.startWorldY) {
         Map.wy = Map.startWorldY;
     }
+    
 
 }
 void MAP::draw() {
@@ -143,6 +143,12 @@ void MAP::draw() {
                 else if (charaId == 'X') {
                     image(Map.wallTL, px, py);
                 }
+                else if (charaId == 'Q') {
+                    image(Map.dRUP, px, py);
+                }
+                else if (charaId == 'O') {
+                    image(Map.dRDN, px, py);
+                }
             }
             else if (charaId >= 'a' && charaId <= 'z') {
                 game()->characterManager()->appear(charaId, wx, wy);
@@ -167,6 +173,16 @@ bool MAP::collisionCheck(float wx, float wy) {
     if (Map.data[col + row * Map.cols] == '2') {
         return true;
     }
+
+    if (Map.data[col + row * Map.cols] == '9') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == '8') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == '0') {
+        return true;
+    }
     if (Map.data[col + row * Map.cols] == '3') {
         return true;
     }
@@ -174,6 +190,9 @@ bool MAP::collisionCheck(float wx, float wy) {
         return true;
     }
     if (Map.data[col + row * Map.cols] == '5') {
+        return true;
+    }
+    if (Map.data[col + row * Map.cols] == '7') {
         return true;
     }
     if (Map.data[col + row * Map.cols] == 'L') {
@@ -191,12 +210,18 @@ bool MAP::collisionCheck(float wx, float wy) {
     if (Map.data[col + row * Map.cols] == 'X') {
         return true;
     }
+    if (Map.data[col + row * Map.cols] == 'O') {
+        return true;
+    } 
+    if (Map.data[col + row * Map.cols] == 'Q') {
+        return true;
+    }
     return false;
 }
-//　マップチップとキャラの左辺が重なっているか
+
 bool MAP::collisionCharaLeft(float wx, float wy) {
     bool leftTop = collisionCheck(wx, wy);
-    bool leftBottom = collisionCheck(wx, wy + Map.chipSize - 1);
+    bool leftBottom = collisionCheck(wx, wy + Map.chipSize -1);
     return leftTop || leftBottom;
 }
 //　マップチップとキャラの右辺が重なっているか
@@ -207,7 +232,7 @@ bool MAP::collisionCharaRight(float wx, float wy) {
 }
 //　マップチップとキャラの上辺が重なっているか
 bool MAP::collisionCharaTop(float wx, float wy) {
-    bool topLeft = collisionCheck(wx, wy);
+    bool topLeft = collisionCheck(wx, wy + Map.chipSize);
     bool topRight = collisionCheck(wx + Map.chipSize - 1, wy);
     return topLeft || topRight;
 }
@@ -221,6 +246,7 @@ bool MAP::collisionCharaBottom(float wx, float wy) {
 }
 
 
+
 float MAP::wDispLeft()
 {
     return Map.wx - Map.chipSize;
@@ -231,14 +257,6 @@ float MAP::wDispRight()
     return Map.wx + width;
 }
 
-float MAP::wDispTop()
-{
-    return Map.wy - Map.chipSize;
-}
 
-float MAP::wDispbottom()
-{
-    return Map.wy + height;
-}
 
 

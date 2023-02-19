@@ -13,6 +13,7 @@ GAME_CLEAR::~GAME_CLEAR()
 void GAME_CLEAR::draw()
 {
 	clear();
+	//image(GameClear.cimg, 500, 500);
 	textSize(100);
 	fill(255);
 	print("CLEAR");

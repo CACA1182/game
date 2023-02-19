@@ -26,10 +26,12 @@ public:
 private:
 	class MAP* Map = nullptr;
 	class CHARACTER_MANAGER* CharacterManager = nullptr;
+	class HIT_POINT* HitPoint = nullptr;
 
 public:
 	class MAP* map() { return Map; }
 	class CHARACTER_MANAGER* characterManager() { return CharacterManager; }
+	class HIT_POINT* hitPoint() { return HitPoint; }
 
 public:
 	GAME();

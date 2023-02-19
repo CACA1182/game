@@ -19,7 +19,10 @@ void PLAYER::appear(float wx, float wy, float vx, float vy)
     Chara.animId = Player.rightAnimId;
     State = STATE::STRUGGLING;
 }
-
+void PLAYER::init()
+{
+    Chara.hp = 0;
+}
 void PLAYER::update()
 {
     Launch();
@@ -39,36 +42,43 @@ void PLAYER::Move()
     //　移動ベクトルを決定
     Chara.vx = 0.0f;
     Chara.vy = 0.0f;
+
     if (isPress(KEY_A)) {
         Chara.vx = -Chara.speed * delta;
         Chara.animId = Player.leftAnimId;
+
     }
     else if (isPress(KEY_D)) {
         Chara.vx = Chara.speed * delta;
         Chara.animId = Player.rightAnimId;
+
     }
     else if (isPress(KEY_W)) {
         Chara.vy = -Chara.speed * delta;
         Chara.animId = Player.upAnimId;
+
     }
     else if (isPress(KEY_S)) {
         Chara.vy = Chara.speed * delta;
         Chara.animId = Player.downAnimId;
+
     }
     //  移動前に現在のChara.wxをPlayer.curWxにとっておく
     Player.curWx = Chara.wx;
     //  移動前に現在のChara.wyをPlayer.curWyにとっておく
     Player.curWy = Chara.wy;
     //  移動
+    
     if (Chara.vx != 0.0f || Chara.vy != 0.0f) {//左右上下キー入力あり
         //とりあえず「次に移動する予定」の位置としてChara.wxを更新しておき
         //あとで、マップに食い込んでいたら、元のPlayer.curWxに戻す
         Chara.wx += Chara.vx;
         Chara.wy += Chara.vy;
     }
+    
     //else {//左右上下キー入力がないとき
-    //    Chara.animData.imgIdx = 0;
-    //    Chara.animData.elapsedTime = -delta;
+      //  Chara.animData.imgIdx = 0;
+    //   Chara.animData.elapsedTime = -delta;
     //}ANIMclassができたらやる
 }
 
@@ -81,10 +91,23 @@ void PLAYER::CheckState()
 
 void PLAYER::draw()
 {
-    float px = Chara.wx - game()->map()->wx();
-    float py = Chara.wy - game()->map()->wy();
+    
+    Player.px = Chara.wx - game()->map()->wx();
+    Player.py = Chara.wy - game()->map()->wy();
     fill(255, 0, 0);
-    rect(px, py, 50, 50);
+    if (Chara.animId == Player.rightAnimId) {
+        image(Player.Rimg, Player.px, Player.py);
+    }
+    else if (Chara.animId == Player.leftAnimId) {
+        image(Player.Limg, Player.px, Player.py);
+    }
+    else if (Chara.animId == Player.upAnimId) {
+        image(Player.UPimg, Player.px, Player.py);
+    }
+    else if (Chara.animId == Player.downAnimId) {
+        image(Player.DNimg, Player.px, Player.py);
+    }
+    
 }
 
 void PLAYER::damage()
@@ -113,36 +136,30 @@ bool PLAYER::survived()
 void PLAYER::CollisionWithMap() {
     MAP* map = game()->map();
     // マップチップとキャラの右
-    if (Chara.animId == Player.rightAnimId) {
-        if (map->collisionCharaRight(Chara.wx, Chara.wy)) {
-            //移動予定位置がマップに食い込んでいるので現在の位置に戻す
+  //  if (Chara.animId == Player.rightAnimId) {
+        if (map->collisionCharaRight(Chara.wx, Chara.wy)) { 
             Chara.wx = Player.curWx;
         }
-    }
+  //  }
     // マップチップとキャラの左
-    else {
-        if (map->collisionCharaLeft(Chara.wx, Chara.wy) ||
-            Chara.wx < map->wx() //または、ウィンドウの左にぶつかったか
+    
+    if (map->collisionCharaLeft(Chara.wx, Chara.wy) ||Chara.wx < map->wx() //または、ウィンドウの左にぶつかったか
             ) {
             Chara.wx = Player.curWx;
-        }
     }
+    
     // マップチップとキャラの上
 
-    if (map->collisionCharaTop(Chara.wx, Chara.wy) ||
-        Chara.wy < map->wy() //または、ウィンドウの左にぶつかったか
+    if (map->collisionCharaTop(Chara.wx, Chara.wy) || Chara.wy < map->wy()
         ) {
         Chara.wy = Player.curWy;
     }
 
     
     // マップチップとキャラの下
-    if (map->collisionCharaBottom(Player.curWx, Chara.wy)) {
-        //--「マップチップに食い込んでいる」
-    
-        Chara.vy = 0.0f;
-        //強制的に上に立っている位置にする
-        Chara.wy = (int)Chara.wy / map->chipSize() * (float)map->chipSize();
+    if (map->collisionCharaBottom(Chara.wx, Chara.wy)) {
+        Chara.wy = Player.curWy ;
+
     }
 
     

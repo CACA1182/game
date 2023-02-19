@@ -17,7 +17,7 @@
     <Filter Include="SCENE">
       <UniqueIdentifier>{4c9c8ef4-2507-4d56-a9da-c9caff1e6b03}</UniqueIdentifier>
     </Filter>
-    <Filter Include="SCENE\GAME">
+    <Filter Include="GAME">
       <UniqueIdentifier>{59f14638-576d-495b-8a51-ed36c68aff3b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -26,16 +26,13 @@
       <Filter>MAP</Filter>
     </ClCompile>
     <ClCompile Include="GAME_CLEAR.cpp">
-      <Filter>SCENE\GAME</Filter>
+      <Filter>GAME</Filter>
     </ClCompile>
     <ClCompile Include="GAME_OBJECT.cpp">
-      <Filter>SCENE\GAME</Filter>
+      <Filter>GAME</Filter>
     </ClCompile>
     <ClCompile Include="GAME_OVER.cpp">
-      <Filter>SCENE\GAME</Filter>
-    </ClCompile>
-    <ClCompile Include="TITLE.cpp">
-      <Filter>SCENE\GAME</Filter>
+      <Filter>GAME</Filter>
     </ClCompile>
     <ClCompile Include="CHARACTER_MANAGER.cpp" />
     <ClCompile Include="CHARACTER.cpp" />
@@ -55,6 +52,11 @@
     <ClCompile Include="SCENE.cpp">
       <Filter>SCENE</Filter>
     </ClCompile>
+    <ClCompile Include="ENEMY.cpp" />
+    <ClCompile Include="HIT_POINT.cpp" />
+    <ClCompile Include="TITLE.cpp">
+      <Filter>SCENE</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="resource.rc">
@@ -66,16 +68,13 @@
       <Filter>MAP</Filter>
     </ClInclude>
     <ClInclude Include="GAME_CLEAR.h">
-      <Filter>SCENE\GAME</Filter>
+      <Filter>GAME</Filter>
     </ClInclude>
     <ClInclude Include="GAME_OBJECT.h">
-      <Filter>SCENE\GAME</Filter>
+      <Filter>GAME</Filter>
     </ClInclude>
     <ClInclude Include="GAME_OVER.h">
-      <Filter>SCENE\GAME</Filter>
-    </ClInclude>
-    <ClInclude Include="TITLE.h">
-      <Filter>SCENE\GAME</Filter>
+      <Filter>GAME</Filter>
     </ClInclude>
     <ClInclude Include="CHARACTER_MANAGER.h" />
     <ClInclude Include="CHARACTER.h" />
@@ -90,6 +89,11 @@
       <Filter>MANAGER</Filter>
     </ClInclude>
     <ClInclude Include="SCENE.h">
+      <Filter>SCENE</Filter>
+    </ClInclude>
+    <ClInclude Include="ENEMY.h" />
+    <ClInclude Include="HIT_POINT.h" />
+    <ClInclude Include="TITLE.h">
       <Filter>SCENE</Filter>
     </ClInclude>
   </ItemGroup>

@@ -14,6 +14,8 @@ private:
     DATA CharaMng;
     class CHARACTER** Characters = nullptr;
     class PLAYER* Player = nullptr;
+    class ENEMY* Enemy = nullptr;
+
     class HEALINGPORTION* Healingportion = nullptr;
 
 public:
@@ -25,5 +27,7 @@ public:
     void update();
     void draw();
     class PLAYER* player() { return Player; }
+    class ENEMY* enemy() { return Enemy; }
+
 };
 
