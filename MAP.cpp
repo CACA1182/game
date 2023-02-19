@@ -146,7 +146,7 @@ void MAP::draw() {
             }
             else if (charaId >= 'a' && charaId <= 'z') {
                 game()->characterManager()->appear(charaId, wx, wy);
-                Map.data[r * Map.cols + c] = '6';
+                Map.data[r * Map.cols + c] = '1';
             }
         }
     }

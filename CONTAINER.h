@@ -4,6 +4,8 @@
 #include"PLAYER.h"
 #include"CHARACTER_MANAGER.h"
 #include"GAME_OVER.h"
+
+
 class CONTAINER
 {
 	struct DATA {
@@ -14,6 +16,7 @@ class CONTAINER
 		CHARACTER::DATA playerChara;
 		PLAYER::DATA player;
 		CHARACTER_MANAGER::DATA charaMng;
+
 	};
 	DATA Data;
 public:

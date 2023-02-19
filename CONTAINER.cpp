@@ -34,7 +34,10 @@ void CONTAINER::setData()
 	Data.player.downAnimId = 3;
 
 	Data.charaMng.numPlayers = 1;
-	Data.charaMng.numPlayerBullets = 0;
+
+
+
+	
 
 
 }

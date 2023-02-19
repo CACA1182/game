@@ -26,9 +26,11 @@ public:
 private:
 	class MAP* Map = nullptr;
 	class CHARACTER_MANAGER* CharacterManager = nullptr;
+
 public:
 	class MAP* map() { return Map; }
 	class CHARACTER_MANAGER* characterManager() { return CharacterManager; }
+
 public:
 	GAME();
 	~GAME();

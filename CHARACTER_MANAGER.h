@@ -6,7 +6,7 @@ class CHARACTER_MANAGER :
 public:
     struct DATA {
         int numPlayers = 0;
-        int numPlayerBullets = 0;
+        int numEnemies = 0;
 
     };
 private:
@@ -14,6 +14,8 @@ private:
     DATA CharaMng;
     class CHARACTER** Characters = nullptr;
     class PLAYER* Player = nullptr;
+    class HEALINGPORTION* Healingportion = nullptr;
+
 public:
     CHARACTER_MANAGER(class GAME* game);
     ~CHARACTER_MANAGER();

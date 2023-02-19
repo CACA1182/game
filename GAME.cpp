@@ -6,6 +6,7 @@
 #include"GAME_OVER.h"
 #include"CONTAINER.h"
 #include"MAP.h"
+
 #include"CHARACTER_MANAGER.h"
 #include "GAME.h"
 GAME::GAME()
@@ -24,6 +25,7 @@ GAME::GAME()
 
 GAME::~GAME()
 {
+
 	delete CharacterManager;
 	delete Map;
 

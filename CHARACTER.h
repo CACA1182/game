@@ -7,6 +7,7 @@ public:
     struct DATA {
 
         int animId = 0;
+        int img = 0;
 
         char charaId = 0;
         int groupId = 0;

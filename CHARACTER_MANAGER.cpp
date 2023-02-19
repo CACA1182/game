@@ -1,5 +1,6 @@
 #include"GAME.h"
 #include"CONTAINER.h"
+
 #include"PLAYER.h"
 #include"CHARACTER.h"
 #include "CHARACTER_MANAGER.h"
@@ -22,15 +23,15 @@ void CHARACTER_MANAGER::create()
     CharaMng = game()->container()->data().charaMng;
 
     Total = 0;
+    Total += CharaMng.numEnemies;
+
     Total += CharaMng.numPlayers;
-    Total += CharaMng.numPlayerBullets;
 
     Characters = new CHARACTER * [Total];
 
     Player = new PLAYER(game());
     int i, j = 0;
     for (i = 0; i < CharaMng.numPlayers; i++)       Characters[j++] = Player;
-    //for (i = 0; i < CharaMng.numPlayerBullets; i++) Characters[j++] = new PLAYER_BULLET(game());
 
     for (int i = 0; i < Total; i++) {
         Characters[i]->create();
@@ -83,6 +84,17 @@ void CHARACTER_MANAGER::update()
                 Characters[i]->wTop() < Characters[j]->wBottom() &&
                 Characters[j]->wTop() < Characters[i]->wBottom()) {
                 //当たった
+                if (Characters[i]->groupId() == 0 && Characters[j]->groupId() == 1) {
+                    //プレイヤーと敵が当たる場合プレイヤーだけダメージが当たるような分岐
+                    Characters[i]->damage();
+                }
+                else if (Characters[i]->groupId() == 0 && Characters[j]->groupId() == 4) {
+                    //プレイヤーとアイテムが当たる場合アイテムだけダメージが当たるような分岐
+                    Characters[j]->damage();
+                }
+                else if (Characters[i]->groupId() == 1 && Characters[j]->groupId() == 4) {
+                    //敵とアイテムは当たらない判定
+                }
                 Characters[i]->damage();
                 Characters[j]->damage();
             }
