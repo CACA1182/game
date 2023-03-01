@@ -13,6 +13,8 @@ public:
         int groupId = 0;
         float wx = 0;
         float wy = 0;
+        float ewx = 0;
+        float ewy = 0;
         float vx = 0;
         float vy = 0;
         float speed = 0;

@@ -24,78 +24,64 @@ void ENEMY::init()
     //Enemy_1.curWy = 0.0f;
     //Enemy_1.differenceX = 0.0f;
     //Enemy_1.differenceY = 0.0f;
-    Enemy.dashFlag = false;
-    Enemy.moveFlag = false;
+    Enemy.ex = 0;
+        //Chara.wx - game()->map()->wx();
+    Enemy.ey = 0;
+        //Chara.wy - game()->map()->wy();
+  
 }
-void ENEMY::appear(float wx, float wy, float vx, float vy)
+void ENEMY::appear(float ewx, float ewy, float vx, float vy)
 {
     Chara.hp = game()->container()->data().enemyChara.hp;
-    Chara.wx = wx;
-    Chara.wy = wy;
-    Enemy.differenceX = wx;
-    Enemy.differenceY = wy;
-    Chara.animId = Enemy.leftAnimId;
+    Chara.wx = ewx;
+    Chara.wy = ewy;
+   // Enemy.differenceX = wx;
+   // Enemy.differenceY = wy;
+  //  Chara.animId = Enemy.leftAnimId;
 }
 
 void ENEMY::update()
 
 {
     
-    Move();
+    homing();
   
 }
 
 
-void ENEMY::Move()
-{
-    //左右上下移動
-    //　移動ベクトルを決定
-    homing();
- 
-    //  移動前に現在のChara.wxをPlayer.curWxにとっておく
-    Enemy.curWx = Chara.wx;
-    //  移動前に現在のChara.wyをPlayer.curWyにとっておく
-    Enemy.curWy = Chara.wy;
-    //  移動
-   if (Chara.vx != 0.0f || Chara.vy != 0.0f) {//左右上下キー入力あり
-        //とりあえず「次に移動する予定」の位置としてChara.wxを更新しておき
-        //あとで、マップに食い込んでいたら、元のPlayer.curWxに戻す
-        Chara.wx += Chara.vx;
-        Chara.wy += Chara.vy;
-   }
-    //else {//左右上下キー入力がないとき
-    //    Chara.animData.imgIdx = 0;
-    //    Chara.animData.elapsedTime = -delta;
-    //}ANIMclassができたらやる
-}
 
 
 void ENEMY::homing() {
-        Chara.vx = 0.0f;
-        Chara.vy = 0.0f;
+     //   Chara.vx = 0.0f;
+       // Chara.vy = 0.0f;
        
-            if (Enemy.px > game()->characterManager()->player()->px()) {
-                Enemy.px += -Chara.speed * delta;
-                    
-                Chara.animId = Enemy.leftAnimId;
+            if (Enemy.ey > game()->characterManager()->player()->py()) {
+                Chara.animId = Enemy.upAnimId;
+                Enemy.ey -= Chara.speed * delta;
+
             }
-            else
+            
+            else 
             {
-                Enemy.px += Chara.speed * delta;
+                Chara.animId = Enemy.downAnimId;
+                Enemy.ey += Chara.speed * delta;
+
+            }
+            
+
+            if (Enemy.ex > game()->characterManager()->player()->px()) {
+                Chara.animId = Enemy.leftAnimId;
+                Enemy.ex -= Chara.speed * delta;
+
+            }
+            if (Enemy.ex > game()->characterManager()->player()->px())
+            {
                 Chara.animId = Enemy.rightAnimId;
+                Enemy.ex += Chara.speed * delta;
+
             }
         
        
-            if (Enemy.py > game()->characterManager()->player()->py()) {
-                Enemy.py += -Chara.speed * delta;
-                Chara.animId = Enemy.upAnimId;
-            }
-
-            else
-            {
-                Enemy.py += Chara.speed * delta;
-                Chara.animId = Enemy.downAnimId;
-            }
         
     
 }
@@ -106,19 +92,22 @@ void ENEMY::homing() {
 void ENEMY::draw()
 {
     
-    Enemy.px = Chara.wx - game()->map()->wx();
-    Enemy.py = Chara.wy - game()->map()->wy();
+  
     if (Chara.animId == Enemy.rightAnimId) {
-        image(Enemy.rightImg, Enemy.px, Enemy.py);
+
+        image(Enemy.rightImg, Enemy.ex, Enemy.ey);
     }
     else if (Chara.animId == Enemy.leftAnimId) {
-        image(Enemy.leftImg, Enemy.px, Enemy.py);
+
+        image(Enemy.leftImg, Enemy.ex, Enemy.ey);
     }
     else if (Chara.animId == Enemy.upAnimId) {
-        image(Enemy.upImg, Enemy.px, Enemy.py);
+
+        image(Enemy.upImg, Enemy.ex, Enemy.ey);
     }
     else if (Chara.animId == Enemy.downAnimId) {
-        image(Enemy.downImg, Enemy.px, Enemy.py);
+
+        image(Enemy.downImg, Enemy.ex, Enemy.ey);
     }
 }
 

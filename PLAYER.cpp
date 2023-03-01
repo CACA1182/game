@@ -14,8 +14,8 @@ void PLAYER::create()
 void PLAYER::appear(float wx, float wy, float vx, float vy)
 {
     Chara.hp = game()->container()->data().playerChara.hp;
-    Chara.wx = wx;
-    Chara.wy = wy;
+    Chara.wx = (wx);
+    Chara.wy = (wy);
     Chara.animId = Player.rightAnimId;
     State = STATE::STRUGGLING;
 }
@@ -167,6 +167,7 @@ void PLAYER::CollisionWithMap() {
 
 }
 
+
 float PLAYER::overCenterVx()
 {
     //マップをスクロールさせるためのベクトルを求める
@@ -184,4 +185,5 @@ float PLAYER::overCenterVy()
     if (Chara.hp == 0)overCenterVy = 0;
     return overCenterVy;
 }
+
 

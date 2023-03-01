@@ -71,7 +71,6 @@ public:
     //ウィンドウ枠からのはみだし判定用---------------------------------------------------
     float wDispLeft();
     float wDispRight();
-    float wDispTop();
-    float wDispbottom();
+    
 };
 

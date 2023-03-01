@@ -75,12 +75,14 @@ void MAP::update() {
         Map.wx = Map.startWorldX;
     }
     
+    
     if (Map.wy > Map.endWorldY) {
         Map.wy = Map.endWorldY;
     }
     if (Map.wy < Map.startWorldY) {
         Map.wy = Map.startWorldY;
     }
+    
     
 
 }
@@ -238,14 +240,12 @@ bool MAP::collisionCharaTop(float wx, float wy) {
 }
 //　マップチップとキャラの下辺が重なっている、または、接しているか。ここだけ他と違う！
 bool MAP::collisionCharaBottom(float wx, float wy) {
-    // wy + Map.chipSizeをCheck関数に渡すことにより
-    // キャラがマップチップと接しているかチェックできる。
     bool bottomLeft = collisionCheck(wx, wy + Map.chipSize);
     bool bottomRight = collisionCheck(wx + Map.chipSize - 1, wy + Map.chipSize);
     return bottomLeft || bottomRight;
 }
 
-
+/*
 
 float MAP::wDispLeft()
 {
@@ -256,6 +256,7 @@ float MAP::wDispRight()
 {
     return Map.wx + width;
 }
+*/
 
 
 

@@ -41,7 +41,7 @@ void CONTAINER::setData()
 	Data.enemyChara.charaId = MAP::ENEMY_ID;
 	Data.enemyChara.hp = 99;
 	Data.enemyChara.groupId = 0;//–¡•ûƒOƒ‹[ƒv‚Í0
-	Data.enemyChara.speed = 3.4f * 60;
+	Data.enemyChara.speed = 3.4f * 20;
 	Data.enemyChara.offsetLeft = 10.0f;//‰¼
 	Data.enemyChara.offsetTop = 1.0f;//‰¼
 	Data.enemyChara.offsetRight = 40.0f;//‰¼
